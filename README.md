@@ -1,7 +1,3 @@
-# Exercises and Examples From Class
+# Django Dance Studio Scheduling app
 
-This repository will be updated each week with activities and examples that we use in class.
-
-Fork this repository, and store your fork on your own GitHub.
-
-Write as much code as you like in here. Remember to create files with different names than mine to avoid merge conflicts.
+Example app to demonstrate Django concepts. Note the unfortunate model name choice of "Class" to represent dance classes.
