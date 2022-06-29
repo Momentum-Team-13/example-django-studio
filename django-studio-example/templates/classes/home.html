@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+</header>
+<div class='tc'>
+    <section class="ba bw3 b--green f2 lh-copy" id="weather-data" class='pa4'></section>
+    <section class="pa4">
+        <table class="f4 w-100 mw8 center">
+            <thead>
+                <tr class='stripe-dark'>
+                    <th class='bg-hot-pink'>Today's Classes</th>
+                    <th class='bg-hot-pink'>Teacher 1</th>
+                    <th class='bg-hot-pink'>Teacher 2</th>
+                </tr>
+            </thead>
+            {% for class in classes %}
+            <tr class='stripe-dark dance-class'>
+                <td>{{class}}</td>
+                {% for teacher in class.teachers.all %}
+                <td>{{teacher}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+    <div class='ph3'>
+        <h2>This is the DanceClassForm, a Django ModelForm</h2>
+        <form class="ba bw2 b--blue" id='class-form' action="{% url 'ajax-add-class' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" type="submit">Add Class</button>
+        </form>
+
+
+
+
+        <h2>This is the TeacherForm, just an HTML form</h2>
+        <form class="ba bw2 b--blue" id='teacher-form' class='tl' action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="teacher-name" id="teacher-name">
+            <button type="submit">Add A Teacher</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
